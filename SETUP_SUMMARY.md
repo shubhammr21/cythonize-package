@@ -232,15 +232,15 @@ docker-compose down
 
 ### ✅ Configuration Files
 
-| File | Purpose |
-|------|---------|
-| `.pre-commit-config.yaml` | Pre-commit hook definitions |
-| `.ruff.toml` | Ruff linter/formatter config |
-| `.markdownlint.json` | Markdown linting rules |
-| `.dockerignore` | Docker build exclusions |
-| `Dockerfile` | Multi-stage container build |
-| `docker-compose.yml` | Local container orchestration |
-| `pyproject.toml` | Python project + tool configs |
+| File                      | Purpose                       |
+| ------------------------- | ----------------------------- |
+| `.pre-commit-config.yaml` | Pre-commit hook definitions   |
+| `.ruff.toml`              | Ruff linter/formatter config  |
+| `.markdownlint.json`      | Markdown linting rules        |
+| `.dockerignore`           | Docker build exclusions       |
+| `Dockerfile`              | Multi-stage container build   |
+| `docker-compose.yml`      | Local container orchestration |
+| `pyproject.toml`          | Python project + tool configs |
 
 ### ✅ Code Quality Improvements
 
@@ -436,15 +436,15 @@ git commit -m "chore: update pre-commit hooks"
 
 ## 📚 Documentation Index
 
-| Document | Purpose |
-|----------|---------|
-| `README.md` | Project overview & quick start |
-| `DEVELOPMENT.md` | Complete development guide |
-| `PRE_COMMIT_GUIDE.md` | Pre-commit hooks reference |
-| `CLEANUP_GUIDE.md` | Build artifact cleanup |
-| `BUILD_GUIDE.md` | Detailed build instructions |
-| `QUICK_START.md` | Fast start commands |
-| `SETUP_SUMMARY.md` | This document |
+| Document              | Purpose                        |
+| --------------------- | ------------------------------ |
+| `README.md`           | Project overview & quick start |
+| `DEVELOPMENT.md`      | Complete development guide     |
+| `PRE_COMMIT_GUIDE.md` | Pre-commit hooks reference     |
+| `CLEANUP_GUIDE.md`    | Build artifact cleanup         |
+| `BUILD_GUIDE.md`      | Detailed build instructions    |
+| `QUICK_START.md`      | Fast start commands            |
+| `SETUP_SUMMARY.md`    | This document                  |
 
 ## 🎓 Learning Resources
 
