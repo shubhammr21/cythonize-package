@@ -1,14 +1,12 @@
 """Business logic service - This file will be cythonized to protect business logic."""
 
-from typing import Optional
-
 from .models import User, UserResponse
 
 
 class UserService:
     """Service for managing users - This logic will be protected by Cython."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._users: dict[int, UserResponse] = {}
         self._next_id: int = 1
 
@@ -29,7 +27,7 @@ class UserService:
         self._users[user_id] = user_response
         return user_response
 
-    def get_user(self, user_id: int) -> Optional[UserResponse]:
+    def get_user(self, user_id: int) -> UserResponse | None:
         """Get user by ID."""
         return self._users.get(user_id)
 

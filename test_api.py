@@ -1,61 +1,52 @@
-"""Test script for the cythonized FastAPI service."""
+"""Test suite for the Cythonized FastAPI service."""
 
-from fastapi.testclient import TestClient
+from httpx import Client
 
-from cythonize_package import app
+from cythonize_package import get_app
 
-client = TestClient(app)
+client = Client(app=get_app(), base_url="http://testserver")
 
 
-def test_root():
+def test_root() -> None:
     """Test the root endpoint."""
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "Welcome to Cythonized FastAPI Service"}
-    print("✅ Root endpoint test passed")
 
 
-def test_create_user():
-    """Test creating a user."""
-    user_data = {"name": "John Doe", "email": "john@example.com", "age": 30}
+def test_create_user() -> int:
+    """Test creating a new user."""
+    user_data = {"name": "Test User", "email": "test@example.com", "age": 30}
     response = client.post("/users/", json=user_data)
     assert response.status_code == 200
     data = response.json()
-    assert data["name"] == "John Doe"
-    assert data["email"] == "john@example.com"
+    assert data["name"] == "Test User"
+    assert data["email"] == "test@example.com"
     assert data["age"] == 30
     assert "id" in data
-    print(f"✅ Create user test passed: {data}")
-    return data["id"]
+    return int(data["id"])
 
 
-def test_get_user():
-    """Test getting a user by ID."""
-    # First create a user
+def test_get_user() -> None:
+    """Test retrieving a specific user."""
     user_id = test_create_user()
-
-    # Now get the user
     response = client.get(f"/users/{user_id}")
     assert response.status_code == 200
     data = response.json()
     assert data["id"] == user_id
-    print(f"✅ Get user test passed: {data}")
 
 
-def test_list_users():
+def test_list_users() -> None:
     """Test listing all users."""
     response = client.get("/users/")
     assert response.status_code == 200
     users = response.json()
     assert isinstance(users, list)
-    print(f"✅ List users test passed: {len(users)} users found")
+    assert len(users) > 0
 
 
 if __name__ == "__main__":
-    print("Testing Cythonized FastAPI Service...\n")
     test_root()
     test_create_user()
     test_get_user()
     test_list_users()
-    print("\n🎉 All tests passed!")
-    print("\n🎉 All tests passed!")

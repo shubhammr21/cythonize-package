@@ -22,6 +22,7 @@ uv run python test_api.py
 ## 📚 What This Project Does
 
 Creates a **FastAPI service with Cython-protected source code** that:
+
 - ✅ Compiles Python to binary (.so files)
 - ✅ Hides source code from distribution
 - ✅ Installs dependencies automatically
@@ -72,15 +73,18 @@ cythonize-package/
 ## 🔑 Important Decisions
 
 ### Why `uv init --lib`?
+
 - Creates proper package structure
 - Supports building wheels
 - Best for distributable packages
 
 ### Why `setuptools` not `uv_build`?
+
 - Cython needs setup.py hooks
 - uv_build doesn't support extensions (yet)
 
 ### Which files are Cythonized?
+
 - ✅ `app.py` - Main application
 - ✅ `models.py` - Data models
 - ✅ `service.py` - Business logic
@@ -89,17 +93,21 @@ cythonize-package/
 ## 📦 Build Outputs
 
 ### Development Build
+
 ```
 cythonize_package-0.1.0-py3-none-any.whl (8 KB)
 ```
+
 - Contains .py files
 - Platform-independent
 - Fast rebuild
 
 ### Production Build
+
 ```
 cythonize_package-0.1.0-cp311-cp311-macosx_11_0_arm64.whl (72 KB)
 ```
+
 - Contains .so files
 - Platform-specific
 - Source protected
@@ -107,6 +115,7 @@ cythonize_package-0.1.0-cp311-cp311-macosx_11_0_arm64.whl (72 KB)
 ## 🧪 Testing
 
 ### Manual Test
+
 ```bash
 curl -X POST http://localhost:8000/users/ \
   -H "Content-Type: application/json" \
@@ -114,6 +123,7 @@ curl -X POST http://localhost:8000/users/ \
 ```
 
 ### Automated Test
+
 ```bash
 uv run python test_api.py
 ```
@@ -145,7 +155,9 @@ uv run python test_api.py
 ## 📝 Common Tasks
 
 ### Add New Endpoint
+
 Edit `src/cythonize_package/app.py`:
+
 ```python
 @app.get("/new-endpoint")
 async def new_endpoint():
@@ -153,18 +165,22 @@ async def new_endpoint():
 ```
 
 ### Add New Model
+
 Edit `src/cythonize_package/models.py`:
+
 ```python
 class NewModel(BaseModel):
     field: str
 ```
 
 ### Add Dependency
+
 ```bash
 uv add requests
 ```
 
 ### Clean Build
+
 ```bash
 rm -rf dist/ build/ src/*.egg-info src/**/*.c
 ```
@@ -172,17 +188,20 @@ rm -rf dist/ build/ src/*.egg-info src/**/*.c
 ## 🐛 Troubleshooting
 
 ### Import Errors
+
 ```bash
 uv sync
 ```
 
 ### Build Failures
+
 ```bash
 rm -rf dist/ build/
 ./build.sh cython
 ```
 
 ### C Compiler Missing
+
 ```bash
 # macOS
 xcode-select --install

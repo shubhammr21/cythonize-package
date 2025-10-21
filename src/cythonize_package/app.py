@@ -1,6 +1,6 @@
 """FastAPI application - This file will be cythonized to protect source code."""
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 
 from .models import User, UserResponse
 from .service import UserService
@@ -17,27 +17,25 @@ def create_app() -> FastAPI:
     user_service = UserService()
 
     @app.get("/")
-    async def root():
+    async def root() -> dict[str, str]:
         """Root endpoint."""
         return {"message": "Welcome to Cythonized FastAPI Service"}
 
     @app.post("/users/", response_model=UserResponse)
-    async def create_user(user: User):
+    async def create_user(user: User) -> UserResponse:
         """Create a new user."""
         return user_service.create_user(user)
 
     @app.get("/users/{user_id}", response_model=UserResponse)
-    async def get_user(user_id: int):
+    async def get_user(user_id: int) -> UserResponse:
         """Get user by ID."""
         user = user_service.get_user(user_id)
         if user is None:
-            from fastapi import HTTPException
-
             raise HTTPException(status_code=404, detail="User not found")
         return user
 
     @app.get("/users/", response_model=list[UserResponse])
-    async def list_users():
+    async def list_users() -> list[UserResponse]:
         """List all users."""
         return user_service.list_users()
 

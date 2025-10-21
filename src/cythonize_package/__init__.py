@@ -4,4 +4,4 @@ __version__ = "0.1.0"
 
 from .app import app, get_app
 
-__all__ = ["app", "get_app", "__version__"]
+__all__ = ["__version__", "app", "get_app"]

@@ -1,13 +1,13 @@
-"""Main entry point for running the FastAPI service."""
+"""Entry point for running the FastAPI service."""
 
 import uvicorn
 
 
-def main():
+def main() -> None:
     """Run the FastAPI service."""
     uvicorn.run(
         "cythonize_package:app",
-        host="0.0.0.0",
+        host="127.0.0.1",  # Bind to localhost only for security
         port=8000,
         reload=True,
     )
