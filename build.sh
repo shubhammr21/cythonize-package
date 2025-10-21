@@ -39,6 +39,15 @@ else
 fi
 
 echo ""
+echo "🧹 Cleaning up build artifacts..."
+# Remove leftover C files from source directory
+find src/ -name "*.c" -delete 2>/dev/null
+find src/ -name "*.cpp" -delete 2>/dev/null
+# Remove egg-info
+find src/ -type d -name "*.egg-info" -exec rm -rf {} + 2>/dev/null
+echo "✅ Build artifacts cleaned"
+
+echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "📦 Built files:"
 ls -lh dist/
@@ -49,3 +58,6 @@ echo "   Production:  ./build.sh cython"
 echo ""
 echo "📥 To install:"
 echo "   pip install dist/*.whl"
+echo ""
+echo "🧹 To clean all artifacts:"
+echo "   ./clean.sh"
