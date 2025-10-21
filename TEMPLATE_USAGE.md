@@ -91,13 +91,13 @@ git commit -m "feat: initialize project"
 
 ## 📋 What Gets Changed
 
-| Component | Old Value | New Value (Example) |
-|-----------|-----------|---------------------|
-| **Project Name** | Cythonize Package | My Awesome API |
-| **Project Slug** | cythonize-package | my-awesome-api |
-| **Package Name** | cythonize_package | my_awesome_api |
-| **Repository** | owner/repo | yourusername/my-awesome-api |
-| **Author** | Your Name | Jane Developer |
+| Component        | Old Value         | New Value (Example)         |
+| ---------------- | ----------------- | --------------------------- |
+| **Project Name** | Cythonize Package | My Awesome API              |
+| **Project Slug** | cythonize-package | my-awesome-api              |
+| **Package Name** | cythonize_package | my_awesome_api              |
+| **Repository**   | owner/repo        | yourusername/my-awesome-api |
+| **Author**       | Your Name         | Jane Developer              |
 
 ## ✅ What Stays the Same (Reusable)
 
@@ -196,33 +196,33 @@ mytool = "my_package.cli:main"
 
 ### Must Customize
 
-| File | What to Change |
-|------|---------------|
-| `pyproject.toml` | Name, version, description, author, URLs |
-| `README.md` | Project description, features, installation |
-| `src/<package>/` | Your application logic |
-| `test_api.py` | Your test cases |
+| File             | What to Change                              |
+| ---------------- | ------------------------------------------- |
+| `pyproject.toml` | Name, version, description, author, URLs    |
+| `README.md`      | Project description, features, installation |
+| `src/<package>/` | Your application logic                      |
+| `test_api.py`    | Your test cases                             |
 
 ### Auto-Customized by Script
 
-| File | Auto-Updated |
-|------|-------------|
-| `setup.py` | Package patterns |
-| `Dockerfile` | Package name in CMD |
+| File                 | Auto-Updated        |
+| -------------------- | ------------------- |
+| `setup.py`           | Package patterns    |
+| `Dockerfile`         | Package name in CMD |
 | `docker-compose.yml` | Service/image names |
-| `.releaserc.json` | Repository URLs |
-| All `.md` files | Project references |
+| `.releaserc.json`    | Repository URLs     |
+| All `.md` files      | Project references  |
 
 ### No Changes Needed
 
-| File | Why |
-|------|-----|
-| `build.sh` | Generic build logic |
-| `clean.sh` | Generic cleanup |
+| File                      | Why                        |
+| ------------------------- | -------------------------- |
+| `build.sh`                | Generic build logic        |
+| `clean.sh`                | Generic cleanup            |
 | `.pre-commit-config.yaml` | Tool configs are universal |
-| `.github/workflows/*.yml` | Generic CI/CD |
-| `.dockerignore` | Generic exclusions |
-| `.gitignore` | Generic Python exclusions |
+| `.github/workflows/*.yml` | Generic CI/CD              |
+| `.dockerignore`           | Generic exclusions         |
+| `.gitignore`              | Generic Python exclusions  |
 
 ## 🧪 Testing Your New Project
 
