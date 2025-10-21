@@ -40,13 +40,13 @@ cythonize-package/
 uv sync
 ```
 
-2. Run the development server:
+1. Run the development server:
 
 ```bash
 uv run python main.py
 ```
 
-3. Access the API:
+1. Access the API:
    - API: <http://localhost:8000>
    - Docs: <http://localhost:8000/docs>
 

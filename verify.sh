@@ -75,7 +75,7 @@ echo "6️⃣  Building without Cython (development)..."
 rm -rf dist/ build/ src/*.egg-info 2>/dev/null
 if uv build 2>&1 | grep -q "Successfully built"; then
     success "Development build successful"
-    DEV_WHEEL=$(ls dist/*.whl | grep "py3-none-any")
+    DEV_WHEEL=$(find dist/ -name "*py3-none-any.whl" | head -1)
     info "Built: $DEV_WHEEL ($(du -h "$DEV_WHEEL" | cut -f1))"
 else
     error "Development build failed"
@@ -92,20 +92,21 @@ else
 fi
 
 echo ""
+echo ""
 echo "8️⃣  Building with Cython (production)..."
 rm -rf dist/ build/ src/*.egg-info 2>/dev/null
 if USE_CYTHON=1 uv build 2>&1 | grep -q "Successfully built"; then
-    success "Cython build successful"
-    PROD_WHEEL=$(ls dist/*.whl | grep -v "py3-none-any" | head -1)
-    info "Built: $(basename "$PROD_WHEEL") ($(du -h "$PROD_WHEEL" | cut -f1))"
+    success "Production build successful"
+    PROD_WHEEL=$(find dist/ -name "*.whl" ! -name "*py3-none-any.whl" | head -1)
+    info "Built: $PROD_WHEEL ($(du -h "$PROD_WHEEL" | cut -f1))"
 else
-    error "Cython build failed"
+    error "Production build failed"
     exit 1
 fi
 
 echo ""
 echo "9️⃣  Verifying cythonized wheel contents..."
-PROD_WHEEL=$(ls dist/*.whl | grep -v "py3-none-any" | head -1)
+PROD_WHEEL=$(find dist/ -name "*.whl" ! -name "*py3-none-any.whl" | head -1)
 
 # Check for .so files
 if unzip -l "$PROD_WHEEL" | grep -q ".cpython.*\.so"; then
