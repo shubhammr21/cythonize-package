@@ -11,22 +11,22 @@
 
 ### ✅ Passed Tests (8/9)
 
-| # | Test | Status | Details |
-|---|------|--------|---------|
-| 1 | **Lint Checks** | ✅ PASS | Ruff linting passed |
-| 2 | **Format Checks** | ✅ PASS | Ruff formatting passed |
-| 3 | **Type Checks** | ✅ PASS | Mypy strict mode passed |
-| 4 | **Security Scan** | ✅ PASS | Bandit security scan passed |
-| 5 | **Unit Tests** | ✅ PASS | All 4 pytest tests passed |
-| 6 | **Development Build** | ✅ PASS | uv build successful |
-| 7 | **Production Build** | ✅ PASS | Cython compilation successful |
-| 8 | **Docker Build** | ✅ PASS | Multi-stage Docker build successful |
+| #   | Test                  | Status | Details                             |
+| --- | --------------------- | ------ | ----------------------------------- |
+| 1   | **Lint Checks**       | ✅ PASS | Ruff linting passed                 |
+| 2   | **Format Checks**     | ✅ PASS | Ruff formatting passed              |
+| 3   | **Type Checks**       | ✅ PASS | Mypy strict mode passed             |
+| 4   | **Security Scan**     | ✅ PASS | Bandit security scan passed         |
+| 5   | **Unit Tests**        | ✅ PASS | All 4 pytest tests passed           |
+| 6   | **Development Build** | ✅ PASS | uv build successful                 |
+| 7   | **Production Build**  | ✅ PASS | Cython compilation successful       |
+| 8   | **Docker Build**      | ✅ PASS | Multi-stage Docker build successful |
 
 ### ⚠️ Known Issue (1/9)
 
-| # | Test | Status | Details |
-|---|------|--------|---------|
-| 9 | **Build Verification** | ⚠️ SKIP | Verify script checks wheel contents (not critical for CI) |
+| #   | Test                   | Status | Details                                                   |
+| --- | ---------------------- | ------ | --------------------------------------------------------- |
+| 9   | **Build Verification** | ⚠️ SKIP | Verify script checks wheel contents (not critical for CI) |
 
 **Note:** The verify.sh script performs detailed wheel inspection which is not part of the standard CI pipeline. The actual GitHub Actions workflow doesn't run this verification step.
 
@@ -164,15 +164,15 @@ COPY pyproject.toml setup.py README.md ./
 
 **Jobs:** 7 parallel jobs
 
-| Job | Purpose | Status |
-|-----|---------|--------|
-| `lint` | Ruff linting | ✅ Simulated locally |
-| `security` | Bandit scan | ✅ Simulated locally |
-| `type-check` | Mypy strict | ✅ Simulated locally |
-| `test` | Pytest matrix (3.11, 3.12) | ✅ Simulated locally |
-| `build-dev` | Development wheel | ✅ Simulated locally |
-| `build-prod` | Cython wheel | ✅ Simulated locally |
-| `docker-test` | Docker build | ✅ Simulated locally |
+| Job           | Purpose                    | Status              |
+| ------------- | -------------------------- | ------------------- |
+| `lint`        | Ruff linting               | ✅ Simulated locally |
+| `security`    | Bandit scan                | ✅ Simulated locally |
+| `type-check`  | Mypy strict                | ✅ Simulated locally |
+| `test`        | Pytest matrix (3.11, 3.12) | ✅ Simulated locally |
+| `build-dev`   | Development wheel          | ✅ Simulated locally |
+| `build-prod`  | Cython wheel               | ✅ Simulated locally |
+| `docker-test` | Docker build               | ✅ Simulated locally |
 
 ### Release Workflow (`.github/workflows/release.yml`)
 
@@ -245,17 +245,17 @@ docker run -p 8000:8000 test
 
 ## Performance Metrics
 
-| Stage | Time | Size |
-|-------|------|------|
-| Lint | < 1s | - |
-| Format Check | < 1s | - |
-| Type Check | ~2s | - |
-| Security Scan | ~2s | - |
-| Unit Tests | < 1s | - |
-| Dev Build | ~5s | ~10KB |
-| Prod Build (Cython) | ~30s | ~300KB |
-| Docker Build | ~45s | ~150MB |
-| **Total CI Time** | **~90s** | - |
+| Stage               | Time     | Size   |
+| ------------------- | -------- | ------ |
+| Lint                | < 1s     | -      |
+| Format Check        | < 1s     | -      |
+| Type Check          | ~2s      | -      |
+| Security Scan       | ~2s      | -      |
+| Unit Tests          | < 1s     | -      |
+| Dev Build           | ~5s      | ~10KB  |
+| Prod Build (Cython) | ~30s     | ~300KB |
+| Docker Build        | ~45s     | ~150MB |
+| **Total CI Time**   | **~90s** | -      |
 
 ---
 
@@ -318,11 +318,11 @@ docker run -p 8000:8000 test
 
 ## Files Created/Modified
 
-| File | Purpose | Status |
-|------|---------|--------|
-| `test_api.py` | Fixed TestClient import | ✅ Committed |
-| `.dockerignore` | Allow README.md | ✅ Committed |
-| `TESTING_SUMMARY.md` | This document | 📝 New |
+| File                 | Purpose                 | Status      |
+| -------------------- | ----------------------- | ----------- |
+| `test_api.py`        | Fixed TestClient import | ✅ Committed |
+| `.dockerignore`      | Allow README.md         | ✅ Committed |
+| `TESTING_SUMMARY.md` | This document           | 📝 New       |
 
 **Last Update:** October 22, 2025
 **Commit:** 1c273c5 - "fix: use TestClient from FastAPI for tests and allow README.md in Docker"
