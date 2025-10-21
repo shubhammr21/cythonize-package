@@ -1,10 +1,10 @@
 """Test suite for the Cythonized FastAPI service."""
 
-from httpx import Client
+from fastapi.testclient import TestClient
 
 from cythonize_package import get_app
 
-client = Client(app=get_app(), base_url="http://testserver")
+client = TestClient(app=get_app())
 
 
 def test_root() -> None:
