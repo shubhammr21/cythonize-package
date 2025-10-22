@@ -1,6 +1,6 @@
 [project]
 name = "cythonize-package"
-version = "0.1.0"
+version = "1.0.0"
 description = "A FastAPI service with Cython-protected source code"
 license = {text = "MIT"}
 keywords = ["fastapi", "cython", "api", "security", "source-protection"]
@@ -65,7 +65,7 @@ cythonize_package = ["py.typed"]
 # Ruff Configuration (Linting & Formatting)
 # ============================================================================
 [tool.ruff]
-target-version = "py311"
+target-version = "1.0.0"
 line-length = 88
 indent-width = 4
 
@@ -216,7 +216,7 @@ lines-after-imports = 2
 # Mypy Configuration (Type Checking)
 # ============================================================================
 [tool.mypy]
-python_version = "3.11"
+python_version = "1.0.0"
 strict = true
 warn_return_any = true
 warn_unused_configs = true
