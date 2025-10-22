@@ -4,11 +4,11 @@ This guide explains how to reuse this setup for new projects and what needs to b
 
 ## 📋 Table of Contents
 
-1. [Current Project-Specific Items](#current-project-specific-items)
-2. [Quick Setup for New Project](#quick-setup-for-new-project)
-3. [Manual Customization Steps](#manual-customization-steps)
-4. [Making It a Template/Boilerplate](#making-it-a-templateboilerplate)
-5. [Automated Setup Script](#automated-setup-script)
+1. [Current Project-Specific Items](#-current-project-specific-items)
+2. [Quick Setup for New Project](#-quick-setup-for-new-project)
+3. [Manual Customization Steps](#-manual-customization-steps)
+4. [Making It a Template/Boilerplate](#-making-it-a-templateboilerplate)
+5. [Automated Setup Script](#-automated-setup-script)
 
 ---
 

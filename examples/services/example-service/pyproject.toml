@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=75.0.0", "Cython>=3.0.0,<4.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "example-service"
+version = "1.0.0"
+description = "Example FastAPI service with Cython protection"
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi[standard]>=0.119.0",
+    "uvicorn>=0.32.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.6.0",
+    "example-package",
+]
+
+[tool.uv.sources]
+example-package = { workspace = true }

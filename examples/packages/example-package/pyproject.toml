@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=75.0.0", "Cython>=3.0.0,<4.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "example-package"
+version = "1.0.0"
+description = "Example shared package with Cython protection"
+requires-python = ">=3.11"
+
+dependencies = [
+    "pydantic>=2.10.0",
+]

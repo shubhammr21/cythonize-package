@@ -32,6 +32,7 @@ repos:
           - pydantic>=2.9.0
           - types-setuptools
         args: [--strict, --ignore-missing-imports]
+        exclude: ^(.*/)setup\.py$|^examples/
 
   # Basic file checks
   - repo: https://github.com/pre-commit/pre-commit-hooks
